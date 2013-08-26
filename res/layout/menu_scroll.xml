@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/menu_bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/home_titlebar" />
+
+    <include layout="@layout/progress_layout" />
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <GridView
+            android:id="@+id/gv_main_grid"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15.0dip"
+            android:visibility="gone" />
+
+        <ListView
+            android:id="@+id/gv_main_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15.0dip"
+            android:cacheColorHint="#00000000"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/xml_getdata_error"
+        android:textColor="#ff676566"
+        android:textSize="20.0sp"
+        android:visibility="gone" />
+
+</LinearLayout>

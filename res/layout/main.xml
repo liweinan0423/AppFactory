@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.appfactory.library.view.AnimationTabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff7f7f7" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+           android:id="@android:id/tabcontent" 
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" />
+
+        <TabWidget
+           android:id="@android:id/tabs" 
+            android:layout_width="fill_parent"
+            android:layout_height="51.0dip"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_footer"
+            android:paddingBottom="1.0dip"
+            android:paddingTop="2.0dip" />
+    </LinearLayout>
+
+</com.appfactory.library.view.AnimationTabHost>

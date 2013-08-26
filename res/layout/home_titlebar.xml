@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_view"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_head" >
+
+    <Button
+        android:id="@+id/gohome_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10.0dip"
+        android:background="@drawable/btn_back"
+        android:onClick="goHome"
+        android:paddingLeft="5.0dip"
+        android:textColor="#ffffffff"
+        android:textSize="14.0sp" />
+
+    <TextView
+        android:id="@+id/title_name"
+        android:layout_width="170.0dip"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="#ffffffff"
+        android:textSize="20.0sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/applogo_image"
+        android:layout_width="170.0dip"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/right_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10.0dip"
+        android:background="@drawable/refresh"
+        android:gravity="center"
+        android:padding="2.0dip"
+        android:textColor="#ffffffff"
+        android:textSize="14.0sp" />
+
+    <Button
+        android:id="@+id/myordernum_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="1.0dip"
+        android:layout_marginTop="1.0dip"
+        android:enabled="false"
+        android:gravity="center"
+        android:padding="0.0dip"
+        android:text="0"
+        android:textColor="#ffffffff"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="45.0dip"
+        android:background="@drawable/do_search"
+        android:gravity="center"
+        android:onClick="search"
+        android:padding="2.0dip"
+        android:textColor="#ffffffff"
+        android:textSize="14.0sp"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/category_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5.0dip"
+        android:background="@drawable/category_btn"
+        android:gravity="center"
+        android:padding="2.0dip"
+        android:textColor="#ffffffff"
+        android:textSize="14.0sp"
+        android:visibility="gone" />
+
+</RelativeLayout>
