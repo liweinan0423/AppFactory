@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.appfactory.R;
+import com.appfactory.service.ServiceCallUtil;
 
 public class MoreActivity extends Activity {
 	private Button company_info;
@@ -72,7 +73,7 @@ public class MoreActivity extends Activity {
 					goWebIntent.putExtra("title", MoreActivity.this
 							.getResources()
 							.getString(R.string.company_info_str));
-					goWebIntent.putExtra("url", "http://www.baidu.com");
+					goWebIntent.putExtra("url", ServiceCallUtil.companyInfoURL);
 				} else if (v == contact_us) {
 					goWebIntent.putExtra("title", MoreActivity.this
 							.getResources().getString(R.string.contact_us_str));

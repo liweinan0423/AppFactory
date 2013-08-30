@@ -32,7 +32,7 @@ public class ServiceCallUtil {
 			+ "/appconfig/menu_page/data";
 	public static final String getContactInfo = baseHttpUrl
 			+ "/contact_info.json";
-	
+	public static final String companyInfoURL = baseHttpUrl + "/company_info";
 
 	static ServiceResponse sendPostRequest(String serviceUrl,
 			ServiceRequest serviceRequest, Class<?> responseClass)

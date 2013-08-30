@@ -10,12 +10,14 @@ import android.os.SystemClock;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.Toast;
 
 public class MainActivity extends TabActivity {
 	private AnimationTabHost tabhost;
 	private int pressBackCount;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,28 +68,33 @@ public class MainActivity extends TabActivity {
 		});
 		tabhost.setCurrentTab(0);
 	}
-	
-	@Override
-	public void onBackPressed() {
-		pressBackCount++;
-		Thread thread = new Thread(new Runnable() {
 
-			@Override
-			public void run() {
-				SystemClock.sleep(3000);
-				pressBackCount = 0;
+	public boolean dispatchKeyEvent(KeyEvent event) {
+		if (event.getAction() == KeyEvent.ACTION_UP) {
+			if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+				pressBackCount++;
+				Thread thread = new Thread(new Runnable() {
+
+					@Override
+					public void run() {
+						SystemClock.sleep(3000);
+						pressBackCount = 0;
+					}
+				});
+				if (pressBackCount < 2) {
+					Toast.makeText(MainActivity.this,
+							R.string.double_press_exit_app, Toast.LENGTH_SHORT)
+							.show();
+					thread.start();
+				} else {
+					if (thread.isAlive()) {
+						thread.stop();
+					}
+					finish();
+					System.exit(0);
+				}
 			}
-		});
-		if (pressBackCount < 2) {
-			Toast.makeText(MainActivity.this,
-					R.string.double_press_exit_app, Toast.LENGTH_SHORT).show();
-			thread.start();
-		} else {
-			if (thread.isAlive()) {
-				thread.stop();
-			}
-			finish();
-			System.exit(0);
 		}
+		return false;
 	}
 }
