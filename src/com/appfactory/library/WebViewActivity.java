@@ -13,9 +13,8 @@ import android.widget.TextView;
 
 import com.appfactory.R;
 
-public class WebViewActivity extends Activity {
+public class WebViewActivity extends BaseActivity {
 	private WebView webView;
-	private Button back;
 	private String title;
 	private String url;
 
@@ -32,18 +31,10 @@ public class WebViewActivity extends Activity {
 
 	private void initView() {
 		TextView titleView = (TextView) findViewById(R.id.title_name);
-		back = (Button) findViewById(R.id.gohome_btn);
 		webView = (WebView) findViewById(R.id.webview);
 
 		findViewById(R.id.right_btn).setVisibility(View.GONE);
 		titleView.setText(title);
-		back.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				WebViewActivity.this.finish();
-			}
-		});
 	}
 
 	private void loadWeb() {

@@ -59,6 +59,8 @@ public class MenuActivity extends Activity implements OnItemClickListener {
 		grid = (GridView) this.findViewById(R.id.gv_main_grid);
 		loadingProgress = (LinearLayout) this
 				.findViewById(R.id.theme_loading_layout);
+		
+		findViewById(R.id.gohome_btn).setVisibility(View.GONE);
 		title.setText(getResources().getString(R.string.menu));
 		list.setOnItemClickListener(this);
 		grid.setOnItemClickListener(this);
