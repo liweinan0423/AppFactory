@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/home_titlebar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/company_info_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/more_button_top"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                android:text="@string/company_info_str"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/contact_us_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/more_button_center"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                android:text="@string/contact_us_str"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/update_version_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/more_button_bottom"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                android:text="@string/update_version_str"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/recent_view_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/more_button_top"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                android:text="@string/recent_view_str"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/favorit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/more_button_bottom"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                android:text="@string/favorite_str"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/support_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/more_button_top"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                android:text="@string/support_str"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/about_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/more_button_bottom"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="60dp"
+                android:text="@string/about_str"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
