@@ -7,7 +7,6 @@ import com.appfactory.util.App;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.util.Log;
