@@ -48,8 +48,8 @@ public class ArticleDetailActivity extends BaseActivity {
 		empty = (TextView) findViewById(R.id.empty);
 		title = (TextView) findViewById(R.id.title_name);
 
-		article_detail_wv.loadUrl(ServiceCallUtil.articleURL + id);
 		article_detail_wv.getSettings().setJavaScriptEnabled(true);
+		article_detail_wv.setVisibility(View.VISIBLE);
 		article_detail_wv.setWebViewClient(new WebViewClient() {
 
 			@Override
@@ -63,6 +63,7 @@ public class ArticleDetailActivity extends BaseActivity {
 				return true;
 			}
 		});
+		article_detail_wv.loadUrl(ServiceCallUtil.articleURL + id);
 	}
 
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
