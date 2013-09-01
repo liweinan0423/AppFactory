@@ -24,6 +24,7 @@ import com.appfactory.library.adapter.MenuLayoutAdapter;
 import com.appfactory.model.Hotline;
 import com.appfactory.model.MenuCell;
 import com.appfactory.service.CommunicateService;
+import com.appfactory.service.ServiceCallUtil;
 import com.appfactory.service.response.ContactInfoResponse;
 import com.appfactory.service.response.MenuLayoutResponse;
 import com.appfactory.util.Contants;
@@ -168,11 +169,18 @@ public class MenuActivity extends Activity implements OnItemClickListener {
 					if (idStr != null) {
 						int id = Integer.parseInt(idStr);
 						Intent intent = new Intent();
-						intent.putExtra("id", id);
+						intent.putExtra("url", ServiceCallUtil.articleURL + id);
 						intent.putExtra("title", cell.getTitle());
 						intent.setClass(MenuActivity.this,
-								ArticleDetailActivity.class);
+								WebViewActivity.class);
 						MenuActivity.this.startActivity(intent);
+						// int id = Integer.parseInt(idStr);
+						// Intent intent = new Intent();
+						// intent.putExtra("id", id);
+						// intent.putExtra("title", cell.getTitle());
+						// intent.setClass(MenuActivity.this,
+						// ArticleDetailActivity.class);
+						// MenuActivity.this.startActivity(intent);
 					} else {
 						ToastView.show(MenuActivity.this, "无效的文章ID");
 					}

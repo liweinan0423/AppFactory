@@ -19,7 +19,7 @@
             android:layout_height="60.0dip"
             android:layout_gravity="top"
             android:ellipsize="end"
-            android:gravity="left"
+            android:gravity="left|center_vertical"
             android:singleLine="true"
             android:text="@string/xml_article_list"
             android:textColor="@android:color/black"

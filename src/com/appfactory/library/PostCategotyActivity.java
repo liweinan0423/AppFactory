@@ -17,6 +17,7 @@ import com.appfactory.R;
 import com.appfactory.library.adapter.ArticleCategoryAdapter;
 import com.appfactory.model.Article;
 import com.appfactory.service.CommunicateService;
+import com.appfactory.service.ServiceCallUtil;
 import com.appfactory.service.response.PostCategoryResponse;
 import com.appfactory.util.Contants;
 
@@ -98,7 +99,7 @@ public class PostCategotyActivity extends BaseActivity {
 			Intent intent = new Intent();
 			intent.setClass(PostCategotyActivity.this, WebViewActivity.class);
 			intent.putExtra("title", art.getTitle());
-			intent.putExtra("url", art.getUrl());
+			intent.putExtra("url", ServiceCallUtil.baseServiceUrl + art.getUrl());
 			PostCategotyActivity.this.startActivity(intent);
 		}
 	};
