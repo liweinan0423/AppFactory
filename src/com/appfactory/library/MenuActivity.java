@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -26,10 +25,10 @@ import com.appfactory.model.Hotline;
 import com.appfactory.model.MenuCell;
 import com.appfactory.service.CommunicateService;
 import com.appfactory.service.response.ContactInfoResponse;
-import com.appfactory.service.response.MenuDataResponse;
 import com.appfactory.service.response.MenuLayoutResponse;
 import com.appfactory.util.Contants;
 import com.appfactory.util.MenuFunctionCode;
+import com.appfactory.util.ToastView;
 
 public class MenuActivity extends Activity implements OnItemClickListener {
 	private static final String GRID_9 = "GRID_9";
@@ -42,6 +41,7 @@ public class MenuActivity extends Activity implements OnItemClickListener {
 	private List<MenuCell> menuData;
 	private MenuLayoutAdapter adapter;
 	private TextView title;
+	private TextView empty;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +57,10 @@ public class MenuActivity extends Activity implements OnItemClickListener {
 		title = (TextView) this.findViewById(R.id.title_name);
 		list = (ListView) this.findViewById(R.id.gv_main_list);
 		grid = (GridView) this.findViewById(R.id.gv_main_grid);
+		empty = (TextView) findViewById(R.id.empty_text);
 		loadingProgress = (LinearLayout) this
 				.findViewById(R.id.theme_loading_layout);
-		
+
 		findViewById(R.id.gohome_btn).setVisibility(View.GONE);
 		title.setText(getResources().getString(R.string.menu));
 		list.setOnItemClickListener(this);
@@ -89,29 +90,33 @@ public class MenuActivity extends Activity implements OnItemClickListener {
 	Handler dataHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
+			loadingProgress.setVisibility(View.GONE);
 			switch (msg.what) {
 			case Contants.GET_DATA_SUCUCESS:
-				loadingProgress.setVisibility(View.GONE);
-				if (layoutType.equals(LIST)) {
-					adapter.setMenuData(menuData);
-					list.setVisibility(View.VISIBLE);
-					list.setAdapter(adapter);
-				} else if (layoutType.equals(GRID_9)) {
-					adapter.setMenuData(menuData);
-					grid.setVisibility(View.VISIBLE);
-					grid.setNumColumns(3);
-					grid.setAdapter(adapter);
-				} else if (layoutType.equals(GRID_16)) {
-					adapter.setMenuData(menuData);
-					grid.setVisibility(View.VISIBLE);
-					grid.setNumColumns(4);
-					grid.setAdapter(adapter);
+				if (menuData.size() != 0) {
+					if (layoutType.equals(LIST)) {
+						adapter.setMenuData(menuData);
+						list.setVisibility(View.VISIBLE);
+						list.setAdapter(adapter);
+					} else if (layoutType.equals(GRID_9)) {
+						adapter.setMenuData(menuData);
+						grid.setVisibility(View.VISIBLE);
+						grid.setNumColumns(3);
+						grid.setAdapter(adapter);
+					} else if (layoutType.equals(GRID_16)) {
+						adapter.setMenuData(menuData);
+						grid.setVisibility(View.VISIBLE);
+						grid.setNumColumns(4);
+						grid.setAdapter(adapter);
+					}
+					adapter.notifyDataSetChanged();
+				} else {
+					empty.setVisibility(View.VISIBLE);
 				}
-				adapter.notifyDataSetChanged();
 				break;
 
 			case Contants.GET_DATA_FAIL:
-
+				empty.setVisibility(View.VISIBLE);
 				break;
 			}
 		}
@@ -148,7 +153,7 @@ public class MenuActivity extends Activity implements OnItemClickListener {
 										CallHotlineActivity.class);
 								localIntent1.putExtra("titlename",
 										cell.getTitle());
-								startActivity(localIntent1);
+								MenuActivity.this.startActivity(localIntent1);
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -158,9 +163,39 @@ public class MenuActivity extends Activity implements OnItemClickListener {
 			} else if (tempCode.equals(MenuFunctionCode.COMPANY_INFO)) {
 
 			} else if (tempCode.equals(MenuFunctionCode.POST)) {
-
+				if (functionCode.length() > 2) {
+					String idStr = functionCode.split("/")[1];
+					if (idStr != null) {
+						int id = Integer.parseInt(idStr);
+						Intent intent = new Intent();
+						intent.putExtra("id", id);
+						intent.putExtra("title", cell.getTitle());
+						intent.setClass(MenuActivity.this,
+								ArticleDetailActivity.class);
+						MenuActivity.this.startActivity(intent);
+					} else {
+						ToastView.show(MenuActivity.this, "无效的文章ID");
+					}
+				} else {
+					ToastView.show(MenuActivity.this, "无效的文章ID");
+				}
 			} else if (tempCode.equals(MenuFunctionCode.POST_CATEGORY)) {
-
+				if (functionCode.length() > 2) {
+					String idStr = functionCode.split("/")[1];
+					if (idStr != null) {
+						final int id = Integer.parseInt(idStr);
+						Intent intent = new Intent();
+						intent.putExtra("id", id);
+						intent.putExtra("title", cell.getTitle());
+						intent.setClass(MenuActivity.this,
+								PostCategotyActivity.class);
+						MenuActivity.this.startActivity(intent);
+					} else {
+						ToastView.show(MenuActivity.this, "无效的文章ID");
+					}
+				} else {
+					ToastView.show(MenuActivity.this, "无效的文章分类ID");
+				}
 			}
 		}
 	}

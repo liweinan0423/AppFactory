@@ -20,5 +20,8 @@
     <string name="favorite_str">我的收藏</string>
     <string name="support_str">技术支持</string>
     <string name="about_str">关于软件</string>
+    <string name="none_article">暂无文章，请返回</string>
 
+    <string name="xml_article_list">文章列表</string>
+    <string name="xml_no_article">暂无文章,请返回!</string>
 </resources>

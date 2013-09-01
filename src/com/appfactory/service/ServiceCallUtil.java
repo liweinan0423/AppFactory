@@ -23,16 +23,24 @@ public class ServiceCallUtil {
 	public static final String baseServiceUrl = "http://" + App.getServerIP();
 	public static final String baseHttpUrl = "http://" + App.getServerIP();
 
+	public static final String suffix = ".json";
+
+	/**
+	 * public url
+	 * */
+	public static final String articleURL = baseHttpUrl + "/posts/";
+
 	/**
 	 * URLs.
 	 */
 	public static final String getMenuLayout = baseHttpUrl
-			+ "/appconfig/menu_page/layout.json";
-	public static final String getMenuLayoutData = baseHttpUrl
-			+ "/appconfig/menu_page/data";
-	public static final String getContactInfo = baseHttpUrl
-			+ "/contact_info.json";
+			+ "/appconfig/menu_page/layout" + suffix;
+	public static final String getContactInfo = baseHttpUrl + "/contact_info"
+			+ suffix;;
 	public static final String companyInfoURL = baseHttpUrl + "/company_info";
+	public static final String getArticleCategory = baseHttpUrl
+			+ "/post_categories/";
+	public static final String getArticle = baseHttpUrl + "/posts/";
 
 	static ServiceResponse sendPostRequest(String serviceUrl,
 			ServiceRequest serviceRequest, Class<?> responseClass)
